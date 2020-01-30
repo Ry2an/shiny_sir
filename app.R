@@ -6,7 +6,7 @@ drawplot <- function(sus_ini, inf_ini, rec_ini, beta1, beta2) {
   suscept <- rep(0, 5000)
   infect <- rep(0, 5000)
   recover <- rep(0, 5000)
-  suscept[1] <- sus_ini*10000
+  suscept[1] <- sus_ini*100000
   infect[1] <- inf_ini*10000
   recover[1] <- rec_ini*10000
   beta1 <- beta1/1000000
@@ -28,15 +28,15 @@ drawplot <- function(sus_ini, inf_ini, rec_ini, beta1, beta2) {
 ui <- fluidPage(
   titlePanel("Shiny SIR"),
   sidebarPanel(
-    sliderInput("suspect_ini", h3("Initial Suscept Number (10^)"),
+    sliderInput("suspect_ini", h3("Initial Suscept Number (10^4 ~ 10^5)"),
                 min = 0.1, max = 1, value = 0.454),
-    sliderInput("infect_ini", h3("Initial Infected Number (10^)"),
+    sliderInput("infect_ini", h3("Initial Infected Number (10^3 ~ 10^4)"),
                 min = 0.1, max = 1, value = 0.21),
-    sliderInput("recover_ini", h3("Initial Recovered Number (10^)"),
+    sliderInput("recover_ini", h3("Initial Recovered Number (10^3 ~ 10^4)"),
                 min = 0.1, max = 1, value = 0.25),
-    sliderInput("beta1", h3("beta1"),
+    sliderInput("beta1", h3("beta1 (0.1 - 1)"),
                 min = 0.1, max = 1, value = 0.1),
-    sliderInput("beta2", h3("beta2"),
+    sliderInput("beta2", h3("beta2 (0.1 - 1)"),
                 min = 0.1, max = 1, value = 0.1)
   ),
   mainPanel(
